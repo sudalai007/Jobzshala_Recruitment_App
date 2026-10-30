@@ -1,0 +1,20 @@
+// assets/mock_meeting_response.json
+{
+  "Meeting": {
+    "MeetingId": "example-meeting-id",
+    "MediaPlacement": {
+      "AudioHostUrl": "https://host.example.com",
+      "AudioFallbackUrl": "https://fallback.example.com",
+      "ScreenDataUrl": "https://screen-data.example.com",
+      "ScreenSharingUrl": "https://screen-sharing.example.com",
+      "ScreenViewingUrl": "https://screen-viewing.example.com",
+      "SignalingUrl": "https://signaling.example.com",
+      "TurnControlUrl": "https://turn.example.com"
+    }
+  },
+  "Attendee": {
+    "AttendeeId": "example-attendee-id",
+    "ExternalUserId": "user@example.com",
+    "JoinToken": "example-join-token"
+  }
+}
