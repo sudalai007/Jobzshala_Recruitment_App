@@ -11,6 +11,7 @@ import '../widgets/country_filter_chips.dart';
 import '../widgets/job_card.dart';
 import '../widgets/offline_banner.dart';
 import '../widgets/skeleton_loading.dart';
+import '../../../interview/presentation/interview_pages.dart';
 
 class JobMatchesPage extends StatefulWidget {
   const JobMatchesPage({super.key});
@@ -289,14 +290,24 @@ class _JobMatchesPageState extends State<JobMatchesPage> {
     }
 
     // 4. Success List state
-    final totalCount = state.jobs.length + (state.isLoadingMore ? 1 : 0);
+    final totalCount = 1 + state.jobs.length + (state.isLoadingMore ? 1 : 0);
 
     return ListView.builder(
       controller: _scrollController,
       physics: const AlwaysScrollableScrollPhysics(),
       itemCount: totalCount,
       itemBuilder: (context, index) {
-        if (index >= state.jobs.length) {
+        if (index == 0) {
+          return InterviewEntryCard(
+            onJoin: () => Navigator.of(context).push(
+              MaterialPageRoute<void>(
+                builder: (_) => const InterviewPreJoinPage(),
+              ),
+            ),
+          );
+        }
+        final jobIndex = index - 1;
+        if (jobIndex >= state.jobs.length) {
           return const Padding(
             padding: EdgeInsets.symmetric(vertical: 20),
             child: Center(
@@ -309,7 +320,7 @@ class _JobMatchesPageState extends State<JobMatchesPage> {
           );
         }
 
-        final job = state.jobs[index];
+        final job = state.jobs[jobIndex];
         return JobCard(
           job: job,
           onTap: () {

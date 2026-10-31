@@ -39,4 +39,8 @@ android {
     }
 }
 
-dependencies {}
+dependencies {
+    // Official Amazon Chime SDK for Android (Maven Central).
+    implementation("software.aws.chimesdk:amazon-chime-sdk:0.25.5")
+    implementation("com.google.code.gson:gson:2.11.0")
+}

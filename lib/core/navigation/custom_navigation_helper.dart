@@ -22,8 +22,6 @@ class CustomNavigationHelper {
   static final GlobalKey<NavigatorState> navigatorKey =
       GlobalKey<NavigatorState>();
 
-  BuildContext? get context =>
-      router.routerDelegate.navigatorKey.currentContext;
 
   static final AppRoute matches = AppRoute("matches", "/");
   static final AppRoute jobDetail = AppRoute("jobDetail", "/jobs/:id");
@@ -85,12 +83,12 @@ class CustomNavigationHelper {
   }
 }
 
-class NavigationHelper {
-  static final NavigationHelper _instance = NavigationHelper._internal();
+// class NavigationHelper {
+//   static final NavigationHelper _instance = NavigationHelper._internal();
 
-  static NavigationHelper get instance => _instance;
+//   static NavigationHelper get instance => _instance;
 
-  NavigationHelper._internal() {
-    debugPrint("**********NavigationHelper called");
-  }
-}
+//   NavigationHelper._internal() {
+//     debugPrint("**********NavigationHelper called");
+//   }
+// }
